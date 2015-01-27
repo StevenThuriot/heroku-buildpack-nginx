@@ -29,6 +29,7 @@ erb conf/nginx.conf.erb > conf/nginx.conf
 mkdir -p logs
 touch logs/access.log logs/error.log
 (tail -qF -n 0 --pid=\$\$ logs/*.log &)
+(npm start &)
 exec bin/nginx -p .
 EOF
 chmod +x "$BUILD_DIR/bin/start_nginx"
